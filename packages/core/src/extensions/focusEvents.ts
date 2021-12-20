@@ -12,19 +12,21 @@ export const FocusEvents = Extension.create({
         key: new PluginKey('focusEvents'),
         props: {
           handleDOMEvents: {
-            focus: (view, event) => {
-              editor.isFocused = true
+            // focus: (view, event) => {
+            //   editor.isFocused = true
 
-              const transaction = editor.state.tr
-                .setMeta('focus', { event })
-                .setMeta('addToHistory', false)
 
-              view.dispatch(transaction)
+            //   const transaction = editor.state.tr
+            //     .setMeta('focus', { event })
+            //     .setMeta('addToHistory', false)
 
-              return false
-            },
+            //   view.dispatch(transaction)
+
+            //   return false
+            // },
             blur: (view, event) => {
               editor.isFocused = false
+
 
               const transaction = editor.state.tr
                 .setMeta('blur', { event })
@@ -32,6 +34,26 @@ export const FocusEvents = Extension.create({
 
               view.dispatch(transaction)
 
+              return false
+            },
+            mouseup: (view, event) => {
+              editor.isMouseup = false
+              console.log('?????------Mouseup')
+               const transaction = editor.state.tr
+                .setMeta('mouseup', { event })
+                .setMeta('addToHistory', false)
+
+              view.dispatch(transaction)
+              return false
+            },
+            mousedown: (view, event) => {
+              editor.isMouseup = true
+
+               const transaction = editor.state.tr
+                .setMeta('mousedown', { event })
+                .setMeta('addToHistory', false)
+
+              view.dispatch(transaction)
               return false
             },
           },

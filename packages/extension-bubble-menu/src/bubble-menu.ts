@@ -33,3 +33,5 @@ export const BubbleMenu = Extension.create<BubbleMenuOptions>({
     ]
   },
 })
+
+console.log(BubbleMenu)

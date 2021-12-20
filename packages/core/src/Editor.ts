@@ -351,11 +351,29 @@ export class Editor extends EventEmitter<EditorEvents> {
 
     const focus = transaction.getMeta('focus')
     const blur = transaction.getMeta('blur')
+    const mouseup = transaction.getMeta('mouseup')
+    const mousedown = transaction.getMeta('mousedown')
+
+
 
     if (focus) {
       this.emit('focus', {
         editor: this,
         event: focus.event,
+        transaction,
+      })
+    }
+    if (mouseup) {
+      this.emit('focus', {
+        editor: this,
+        event: mouseup.event,
+        transaction,
+      })
+    }
+    if (mousedown) {
+      this.emit('focus', {
+        editor: this,
+        event: mousedown.event,
         transaction,
       })
     }

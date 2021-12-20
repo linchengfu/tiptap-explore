@@ -51,6 +51,7 @@ export class ReactRenderer<R = unknown> {
     className = '',
   }: ReactRendererOptions) {
     this.id = Math.floor(Math.random() * 0xFFFFFFFF).toString()
+
     this.component = component
     this.editor = editor as ExtendedEditor
     this.props = props
@@ -60,23 +61,25 @@ export class ReactRenderer<R = unknown> {
     if (className) {
       this.element.classList.add(...className.split(' '))
     }
-
     this.render()
+
   }
 
   render(): void {
     const Component = this.component
     const props = this.props
+    console.log(this.editor)
 
-    if (isClassComponent(Component) || isForwardRefComponent(Component)) {
-      props.ref = (ref: R) => {
-        this.ref = ref
-      }
-    }
+    // if (isClassComponent(Component) || isForwardRefComponent(Component)) {
+    //   props.ref = (ref: R) => {
+    //     this.ref = ref
+    //   }
+    // }
 
     this.reactElement = <Component {...props } />
 
     if (this.editor?.contentComponent) {
+      console.log("⛽",this.editor.contentComponent)
       this.editor.contentComponent.setState({
         renderers: this.editor.contentComponent.state.renderers.set(
           this.id,

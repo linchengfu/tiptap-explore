@@ -18,6 +18,8 @@
 <script>
 import { Editor, EditorContent, BubbleMenu } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
+import suggestion from './suggestion'
+import Commands from './extension-slash/src'
 
 export default {
   components: {
@@ -35,6 +37,9 @@ export default {
     this.editor = new Editor({
       extensions: [
         StarterKit,
+        Commands.configure({
+          suggestion,
+        }),
       ],
       content: `
         <p>
