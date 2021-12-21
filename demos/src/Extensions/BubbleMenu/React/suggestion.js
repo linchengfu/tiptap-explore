@@ -58,7 +58,7 @@ const suggestions = {
 
     return {
       onStart: props => {
-        component = new ReactRenderer(CommandsList, { editor: props.editor, props, })
+        component = new ReactRenderer(CommandsList, { editor: props.editor, props })
         popup = tippy('body', {
           getReferenceClientRect: props.clientRect,
           appendTo: () => document.body,

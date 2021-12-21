@@ -15,7 +15,6 @@ export const FocusEvents = Extension.create({
             // focus: (view, event) => {
             //   editor.isFocused = true
 
-
             //   const transaction = editor.state.tr
             //     .setMeta('focus', { event })
             //     .setMeta('addToHistory', false)
@@ -26,7 +25,6 @@ export const FocusEvents = Extension.create({
             // },
             blur: (view, event) => {
               editor.isFocused = false
-
 
               const transaction = editor.state.tr
                 .setMeta('blur', { event })
@@ -39,7 +37,7 @@ export const FocusEvents = Extension.create({
             mouseup: (view, event) => {
               editor.isMouseup = false
               console.log('?????------Mouseup')
-               const transaction = editor.state.tr
+              const transaction = editor.state.tr
                 .setMeta('mouseup', { event })
                 .setMeta('addToHistory', false)
 
@@ -49,7 +47,7 @@ export const FocusEvents = Extension.create({
             mousedown: (view, event) => {
               editor.isMouseup = true
 
-               const transaction = editor.state.tr
+              const transaction = editor.state.tr
                 .setMeta('mousedown', { event })
                 .setMeta('addToHistory', false)
 

@@ -1,20 +1,22 @@
-import * as React from "react";
+import * as React from 'react'
 
 class CommandList extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   selectItem(index) {
-    const { items, command } = this.props;
-    const item = items[index];
+    const { items, command } = this.props
+    const item = items[index]
+
     if (item) {
-      command(item);
+      command(item)
     }
   }
 
   render() {
-    const { items } = this.props;
+    const { items } = this.props
+
     return (
       <div>
         {items.map((item, index) => (
@@ -23,8 +25,8 @@ class CommandList extends React.Component {
           </button>
         ))}
       </div>
-    );
+    )
   }
 }
 
-export default CommandList;
+export default CommandList

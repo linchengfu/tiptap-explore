@@ -354,8 +354,6 @@ export class Editor extends EventEmitter<EditorEvents> {
     const mouseup = transaction.getMeta('mouseup')
     const mousedown = transaction.getMeta('mousedown')
 
-
-
     if (focus) {
       this.emit('focus', {
         editor: this,
