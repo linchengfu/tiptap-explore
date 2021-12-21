@@ -2,7 +2,6 @@ import tippy from 'tippy.js'
 import CommandsList from './CommandsList'
 import { ReactRenderer } from '@tiptap/react'
 
-
 const suggestions = {
   items: ({ query }) => {
     return [
@@ -59,14 +58,6 @@ const suggestions = {
 
     return {
       onStart: props => {
-        // component = new VueRenderer(CommandsList, {
-        //   // using vue 2:
-        //   // parent: this,
-        //   // propsData: props,
-        //   props,
-        //   editor: props.editor,
-        // })
-
         component = new ReactRenderer(CommandsList, { editor: props.editor, props, })
         popup = tippy('body', {
           getReferenceClientRect: props.clientRect,
@@ -77,8 +68,6 @@ const suggestions = {
           trigger: 'manual',
           placement: 'bottom-start',
         })
-
-        console.log(popup)
       },
 
       onUpdate(props) {
@@ -100,9 +89,8 @@ const suggestions = {
       },
 
       onExit() {
-        console.log('exit')
         popup[0].destroy()
-        // component.destroy()
+        component.destroy()
       },
     }
   },
